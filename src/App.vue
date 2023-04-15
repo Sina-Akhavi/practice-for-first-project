@@ -1,5 +1,11 @@
 <script>
+  import Buttons from './assets/components/Buttons.vue';
+
   export default {
+    components: {
+      Buttons
+    },
+
     data() {
       return {
         people: [
@@ -50,11 +56,7 @@
 </script>
 
 <template>
-  <div class="navbar">
-    <button @click="showOne" class="show-btn">Show</button>
-    <button @click="disappearOne" class="hide-btn">Hide</button>
-  </div>
-
+    <Buttons @showOne="showOne" @hideOne="disappearOne" greeting-message="hello"/>
 
     <template v-for="(person, i) in people">
       <p v-if="i < index" class="bording">
@@ -88,30 +90,6 @@
 
 .smallEl {
   display: block;
-}
-
-.hide-btn {
-  float: right;
-}
-
-.navbar {
-  margin-bottom: 15px;
-}
-
-button.show-btn, button.hide-btn {
-  width: 8%;
-  height: 4em;
-  border-radius: 5px;
-  font-weight: bolder;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-.show-btn {
-  background-color: green;
-}
-
-.hide-btn {
-  background-color: red;
 }
 
 </style>
